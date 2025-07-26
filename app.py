@@ -14,7 +14,7 @@ if not st.session_state.logueado:
     if st.button("Ingresar"):
         if usuario == "admin" and contraseña == "admin":
             st.session_state.logueado = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Credenciales inválidas")
 else:
