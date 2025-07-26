@@ -77,3 +77,16 @@ if st.button("Guardar Supervisión"):
     fila = [datetime.now().strftime("%Y-%m-%d %H:%M:%S"), pais, departamento, sitio] + respuestas + [total_puntos, porcentaje, resultado, observaciones]
     sheet.append_row(fila)
     st.success("✅ Supervisión guardada exitosamente.")
+    # === Mostrar datos registrados ===
+    st.markdown("---")
+    st.subheader("📄 Supervisiones registradas")
+
+    # Obtener encabezados
+    encabezados = sheet.row_values(1)
+    registros = sheet.get_all_values()[1:]  # Omitir encabezado
+
+    df_registros = pd.DataFrame(registros, columns=encabezados)
+
+    # Mostrar solo las últimas 10 filas (opcional)
+    st.dataframe(df_registros.tail(10), use_container_width=True)
+
