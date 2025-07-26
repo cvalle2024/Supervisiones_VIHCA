@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-from utils.centros_loader import cargar_centros
+from util.centros_loader import cargar_centros
 from google.oauth2.service_account import Credentials
 import gspread
 import io
